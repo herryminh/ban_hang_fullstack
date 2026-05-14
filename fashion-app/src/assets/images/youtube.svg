@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" 
+width="32"
+ height="32" 
+ viewBox="0 0 32 32" 
+ fill="none" 
+ aria-hidden="true" 
+ class="youtube">
+ <g clip-path="url(#youtubeclippath_a)">
+<path fill=" #fff" d="M16.905 7.545s7.505 0 9.377.505a3.017 3.017 0 0 1 2.121 2.135c.502 1.884.502 5.815.502 5.815 0 .02-.001 3.935-.502 5.814a3.018 3.018 0 0 1-2.12 2.137c-1.873.505-9.378.505-9.378.505s-7.505 0-9.377-.505a3.021 3.021 0 0 1-2.122-2.137c-.5-1.879-.5-5.794-.5-5.814 0 0 0-3.93.5-5.815A3.02 3.02 0 0 1 7.528 8.05c1.872-.505 9.377-.505 9.377-.505ZM14.45 19.568l6.274-3.567-6.274-3.57v7.137Z"></path></g><defs><clipPath id="youtubeclippath_a">
+<path fill=" #fff" d="M4.905 4h24v24h-24z"></path>
+</clipPath>
+</defs>
+</svg>

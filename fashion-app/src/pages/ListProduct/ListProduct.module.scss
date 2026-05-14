@@ -1,0 +1,408 @@
+// ==========================================
+// 1. LAYOUT & CHUNG
+// ==========================================
+.wrapper {
+    padding: 24px;
+    background-color: #f8fafc; // Màu nền nhẹ nhàng hơn
+    min-height: 100vh;
+    font-family: 'Inter', -apple-system, sans-serif;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+
+    .titleGroup {
+        h2 {
+            margin: 0;
+            color: #1e293b;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        p {
+            margin: 4px 0 0;
+            color: #64748b;
+            font-size: 14px;
+        }
+    }
+}
+
+.btnAdd {
+    background: #4f46e5;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    &:hover {
+        background: #4338ca;
+        transform: translateY(-1px);
+    }
+}
+
+// ==========================================
+// 2. BẢNG DANH SÁCH (TABLE)
+// ==========================================
+.tableWrapper {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+
+    thead {
+        background: #f8fafc;
+        border-bottom: 1px solid #e2e8f0;
+        th {
+            padding: 16px;
+            text-align: left;
+            font-size: 12px;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+    }
+
+    .mainRow {
+        border-bottom: 1px solid #f1f5f9;
+        transition: background 0.2s;
+        &:hover {
+            background: #f1f5f9;
+        }
+        &.isExpanded {
+            background: #eff6ff;
+        }
+        td {
+            padding: 14px 16px;
+            vertical-align: middle;
+        }
+    }
+}
+
+.mainImgBox {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.name {
+    font-weight: 600;
+    color: #1e293b;
+    font-size: 14px;
+}
+.category {
+    font-size: 12px;
+    color: #64748b;
+    margin-top: 2px;
+}
+.brand {
+    background: #f1f5f9;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #475569;
+}
+.price {
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.btnToggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    .arrow {
+        display: inline-block;
+        transition: 0.3s;
+        color: #94a3b8;
+        font-size: 10px;
+        &.active {
+            transform: rotate(90deg);
+            color: #4f46e5;
+        }
+    }
+}
+
+.btnAction {
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+    background: white;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s;
+    &:hover {
+        border-color: #4f46e5;
+        color: #4f46e5;
+    }
+    &.delete {
+        color: #ef4444;
+        &:hover {
+            border-color: #ef4444;
+            background: #fef2f2;
+        }
+    }
+}
+
+// ==========================================
+// 3. CHI TIẾT BIẾN THỂ (EXPANDED)
+// ==========================================
+.variantContainer {
+    padding: 24px;
+    background: #fdfdfd;
+    border-left: 4px solid #4f46e5;
+    .vHeader {
+        font-weight: 700;
+        font-size: 13px;
+        margin-bottom: 16px;
+        color: #475569;
+        text-transform: uppercase;
+    }
+}
+
+.vVerticalList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.vItem {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.vGallery {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    width: 300px;
+    padding-bottom: 8px;
+    &::-webkit-scrollbar {
+        height: 6px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 10px;
+    }
+
+    .vImgFrame {
+        width: 80px;
+        height: 100px;
+        flex-shrink: 0;
+        border-radius: 6px;
+        border: 1px solid #f1f5f9;
+        overflow: hidden;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+.vDetails {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.vInfoMain {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    .vColor {
+        font-weight: 600;
+        font-size: 14px;
+        color: #1e293b;
+    }
+    .vSku {
+        font-size: 12px;
+        color: #64748b;
+        background: #f8fafc;
+        padding: 2px 8px;
+        border-radius: 4px;
+        border: 1px solid #e2e8f0;
+    }
+    .vPrice {
+        margin-left: auto;
+        font-weight: 700;
+        color: #4f46e5;
+        font-size: 16px;
+    }
+}
+
+.vInventory {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    .sizeBadge {
+        display: flex;
+        border: 1px solid #e2e8f0;
+        border-radius: 6px;
+        overflow: hidden;
+        .sLabel {
+            background: #f8fafc;
+            padding: 4px 8px;
+            font-weight: 600;
+            font-size: 11px;
+            color: #64748b;
+        }
+        .sCount {
+            background: white;
+            padding: 4px 8px;
+            font-weight: 700;
+            font-size: 11px;
+            color: #10b981;
+            border-left: 1px solid #e2e8f0;
+        }
+    }
+}
+
+// ==========================================
+// 4. MODAL & FORM (ĐÃ ĐỒNG BỘ CATEGORY)
+// ==========================================
+.modalBody {
+    padding: 24px;
+
+    // Đồng bộ tất cả Input và Select
+    input,
+    .customSelect {
+        padding: 10px 14px;
+        border: 1px solid #cbd5e1;
+        border-radius: 8px;
+        font-size: 14px;
+        transition: all 0.2s;
+        outline: none;
+        &:focus {
+            border-color: #4f46e5;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+    }
+}
+
+.selectWrapper {
+    position: relative;
+    display: flex;
+    gap: 8px;
+    flex: 1;
+
+    // Tạo icon mũi tên giả cho Select
+    &::after {
+        content: '▼';
+        font-size: 10px;
+        color: #64748b;
+        position: absolute;
+        right: 55px; // Cách nút +
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+    }
+
+    .customSelect {
+        flex: 1;
+        appearance: none; // Tắt mặc định
+        padding-right: 30px; // Chừa chỗ cho mũi tên
+        background-color: #fff;
+    }
+
+    .btnQuickAdd {
+        width: 42px;
+        background: #f1f5f9;
+        border: 1px solid #cbd5e1;
+        border-radius: 8px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        color: #475569;
+        transition: all 0.2s;
+        &:hover {
+            background: #e2e8f0;
+            border-color: #94a3b8;
+        }
+    }
+}
+
+.variantItem {
+    border: 1px solid #f1f5f9;
+    padding: 20px;
+    margin-top: 16px;
+    border-radius: 12px;
+    background: #fafafa;
+}
+
+.sizeInputGroup {
+    display: flex;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    overflow: hidden;
+    background: white;
+    .sName {
+        width: 60px;
+        border: none !important;
+        background: #f8fafc;
+        border-right: 1px solid #cbd5e1 !important;
+        border-radius: 0 !important;
+    }
+    .sQty {
+        width: 60px;
+        border: none !important;
+        border-radius: 0 !important;
+    }
+}
+
+.textRight {
+    text-align: right;
+}
+.textCenter {
+    text-align: center;
+}
+
+// Utils cho Modal (Nếu bạn để trong file này)
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+.modalContent.large {
+    background: white;
+    width: 850px;
+    max-height: 90vh;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}

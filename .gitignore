@@ -1,0 +1,7 @@
+node_modules
+build
+.history
+.vscode
+.env
+.DS_Store
+uploads

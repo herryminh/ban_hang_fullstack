@@ -1,0 +1,129 @@
+.wrapper {
+    height: 60px;
+    width: 100%;
+    box-shadow: 0px 1px 1px rgb(0 0 0 /12%);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background: white;
+}
+
+.contact {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    z-index: 999;
+}
+.contact-logo {
+    padding: 7px;
+    background-color: #fff;
+    border-radius: 999px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.09);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+
+    &:hover {
+        transform: scale(1.08);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
+    }
+}
+
+.contact-logo-zalo {
+    width: 40px;
+    height: 40px;
+}
+.contact-logo-tiktok {
+    padding: 0 8px;
+}
+.inner {
+    height: 100%;
+    width: var(--default-layout-width);
+
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.product-dropdown {
+    position: relative;
+}
+
+.product-menu-popup {
+    position: absolute;
+    top: 47px;
+    left: -20px;
+    min-width: 180px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: var(--shadow-lg);
+    padding: 8px 0;
+    z-index: 100;
+}
+
+.product-menu-popup a,
+.product-menu-popup button {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 10px 16px;
+    font-size: 14px;
+
+    &:hover {
+        background: #f5f5f5;
+    }
+}
+
+.item {
+    position: relative; /* cần cho pseudo-element */
+
+    margin-left: 0; /* tạo khoảng cách cho dấu gạch */
+}
+
+.item::after {
+    content: ''; /* luôn phải có content */
+    display: inline-block;
+    width: 1px; /* độ dày của gạch */
+    height: calc(var(--default-layout-header-height) - 30px); /* chiều cao gạch */
+    background-color: #ccc; /* màu gạch */
+    margin-left: 32px; /* khoảng cách từ text tới gạch */
+    vertical-align: middle; /* canh giữa theo text */
+}
+.home {
+}
+.content {
+    display: flex;
+    align-items: center;
+}
+.user {
+}
+.admin-dropdown {
+    position: relative;
+}
+.admin-menu-popup {
+    position: absolute;
+    top: 48px;
+    right: 1px;
+    min-width: 220px;
+    background-color: #fff;
+    z-index: 100;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+    /* 👇 Thêm hạn chế chiều cao + scroll */
+    max-height: calc(100vh - 300px);
+    overflow-y: auto;
+}
+
+/* Scrollbar đẹp cho Chrome */
+.admin-menu-popup::-webkit-scrollbar {
+    width: 6px;
+}
+.admin-menu-popup::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+}
+.admin-menu-popup::-webkit-scrollbar-track {
+    background: transparent;
+}

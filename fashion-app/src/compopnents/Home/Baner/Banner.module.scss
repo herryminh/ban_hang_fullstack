@@ -1,0 +1,49 @@
+.slider {
+    margin-top: 60px;
+    width: 100%;
+    height: 420px; /* chỉnh chiều cao banner ở đây */
+    overflow: hidden;
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.track {
+    display: flex;
+    height: 100%;
+    transition: transform 1.2s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Nội dung text đè lên banner */
+.content {
+    position: absolute;
+    bottom: 20%;
+    left: 8%;
+    color: #fff;
+    max-width: 500px;
+}
+
+.content h2 {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.content p {
+    font-size: 18px;
+    opacity: 0.9;
+}

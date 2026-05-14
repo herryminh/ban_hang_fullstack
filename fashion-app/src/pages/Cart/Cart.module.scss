@@ -1,0 +1,405 @@
+/* Cart.module.scss */
+
+$text-color: #333;
+$light-text: #777;
+$border-color: #e8e8e8;
+$bg-light: #f5f5f5;
+$white: #ffffff;
+$danger: #d9534f;
+
+// --- Wrapper chính ---
+.cart-wrapper {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    min-height: 60vh;
+}
+
+.title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: $text-color;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+// --- Layout chính (2 cột) ---
+.main-content {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+
+    // Responsive cho tablet và mobile: xếp chồng lên nhau
+    @media (max-width: 992px) {
+        flex-direction: column;
+    }
+}
+
+// --- Cột trái: Danh sách sản phẩm ---
+.cart-list {
+    flex: 2; // Chiếm 2/3 chiều rộng
+    background-color: $white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.cart-item {
+    display: flex;
+    padding: 20px;
+    border-bottom: 1px solid $border-color;
+    align-items: center;
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    // Responsive cho mobile nhỏ: Ảnh lên trên, thông tin xuống dưới
+    @media (max-width: 576px) {
+        flex-wrap: wrap;
+        .image-container {
+            margin-bottom: 15px;
+        }
+        .item-info {
+            flex-basis: 100%;
+            margin-bottom: 15px;
+        }
+        .remove-btn {
+            margin-left: auto;
+        }
+    }
+}
+
+.image-container {
+    width: 120px;
+    height: 120px;
+    flex-shrink: 0;
+    margin-right: 25px;
+    border: 1px solid $border-color;
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .item-image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain; // Giữ nguyên tỉ lệ ảnh
+    }
+}
+
+.item-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .item-name {
+        font-weight: 600;
+        font-size: 18px;
+        margin-bottom: 8px;
+        color: $text-color;
+        display: -webkit-box;
+        -webkit-line-clamp: 2; // Giới hạn 2 dòng tên
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .item-desc {
+        font-size: 14px;
+        color: $light-text;
+        margin-bottom: 10px;
+        font-style: italic;
+    }
+
+    .item-price {
+        color: var(--primary);
+        font-weight: 700;
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+}
+
+// Nút tăng giảm số lượng
+.quantity-control {
+    display: flex;
+    align-items: center;
+    border: 1px solid $border-color;
+    width: fit-content;
+    border-radius: 4px;
+    overflow: hidden;
+
+    button {
+        width: 32px;
+        height: 32px;
+        background: $bg-light;
+        border: none;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+            background: darken($bg-light, 5%);
+        }
+        &:active {
+            background: darken($bg-light, 10%);
+        }
+    }
+
+    .qty-value {
+        padding: 0 15px;
+        font-weight: 500;
+        font-size: 16px;
+        min-width: 40px;
+        text-align: center;
+    }
+}
+
+// Nút xóa
+.remove-btn {
+    padding: 8px 15px;
+    background-color: transparent;
+    border: 1px solid $border-color;
+    color: $light-text;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    margin-left: 20px;
+    white-space: nowrap;
+
+    &:hover {
+        background-color: $danger;
+        border-color: $danger;
+        color: $white;
+    }
+}
+
+// --- Cột phải: Thanh toán ---
+.checkout-section {
+    flex: 1; // Chiếm 1/3 chiều rộng
+    background-color: $white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 20px; // Dính ở trên khi cuộn (nếu header không che)
+    border: 1px solid $border-color;
+
+    h3 {
+        font-size: 20px;
+        margin-bottom: 20px;
+        padding-bottom: 12px;
+        border-bottom: 2px solid $bg-light;
+        color: $text-color;
+    }
+}
+
+.shipping-form {
+    margin-bottom: 30px;
+
+    input,
+    textarea {
+        width: 100%;
+        padding: 14px;
+        margin-bottom: 15px;
+        border: 1px solid $border-color;
+        border-radius: 6px;
+        outline: none;
+        font-size: 15px;
+        transition: border-color 0.3s;
+        background-color: #fafafa;
+
+        &:focus {
+            border-color: var(--primary);
+            background-color: $white;
+        }
+
+        &::placeholder {
+            color: #aaa;
+        }
+    }
+
+    textarea {
+        resize: vertical;
+        height: 100px;
+    }
+}
+
+.payment-methods {
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    label {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        font-size: 16px;
+        padding: 10px;
+        border: 1px solid $border-color;
+        border-radius: 6px;
+        transition: all 0.2s;
+
+        &:hover {
+            background-color: $bg-light;
+        }
+
+        // Style khi được chọn (nếu muốn advanced hơn thì cần JS thêm class)
+        &:has(input:checked) {
+            border-color: var(--purple);
+        }
+
+        input {
+            margin-right: 15px;
+            accent-color: var(--purple); // Màu của nút radio
+            transform: scale(1.2);
+        }
+    }
+}
+
+.footer-summary {
+    border-top: 2px dashed $border-color;
+    padding-top: 25px;
+
+    .summary {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-bottom: 25px;
+        font-size: 18px;
+        color: $text-color;
+
+        .total-amount {
+            font-weight: 800;
+            color: var(--primary);
+            font-size: 26px;
+            line-height: 1;
+        }
+    }
+}
+
+.checkout-btn {
+    width: 100%;
+    padding: 16px;
+    background-color: var(--primary);
+    color: $white;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+
+    &:hover:not(:disabled) {
+        transform: translateY(-2px);
+    }
+
+    &:active:not(:disabled) {
+        transform: translateY(0);
+    }
+
+    // Trạng thái disabled (khi đang xử lý)
+    &:disabled,
+    &.disabled {
+        background-color: #ccc;
+        color: #666;
+        cursor: not-allowed;
+        box-shadow: none;
+        transform: none;
+        opacity: 0.8;
+    }
+}
+
+// --- Trạng thái Loading và Giỏ hàng trống ---
+.loading,
+.empty-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    background: $white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.loading {
+    font-size: 18px;
+    color: $light-text;
+    // Bạn có thể thêm spinner icon ở đây
+}
+
+.empty-container {
+    text-align: center;
+    padding: 40px;
+
+    .empty-icon {
+        font-size: 80px;
+        margin-bottom: 25px;
+        color: #ddd;
+    }
+
+    p {
+        font-size: 20px;
+        margin-bottom: 30px;
+        color: $text-color;
+    }
+
+    button {
+        padding: 14px 40px;
+        background-color: var(--primary);
+        color: $white;
+        border: none;
+        border-radius: 50px; // Nút tròn
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.3s;
+
+        &:hover {
+            background-color: var(--text-description);
+        }
+    }
+}
+.shipping-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    input,
+    textarea {
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 14px;
+        outline: none;
+        transition: border-color 0.2s;
+
+        &:focus {
+            border-color: #000;
+        }
+    }
+
+    textarea {
+        min-height: 80px;
+        resize: vertical;
+    }
+
+    .note-input {
+        min-height: 60px;
+        background-color: #f9f9f9; // Màu nền hơi khác để phân biệt với địa chỉ
+        border-style: dashed; // Tạo kiểu nét đứt cho ghi chú
+    }
+}

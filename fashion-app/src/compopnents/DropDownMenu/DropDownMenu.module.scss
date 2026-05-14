@@ -1,0 +1,55 @@
+.dropdown {
+    position: absolute;
+    right: -10px;
+    top: 65px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    min-width: 170px;
+    z-index: 100;
+
+    .username {
+        text-align: center;
+        padding: 10px;
+        font-weight: bold;
+        border-bottom: 1px solid #eee;
+    }
+
+    .item {
+        position: relative;
+        display: block;
+        margin: 0;
+        padding: 10px;
+        color: #333;
+        text-decoration: none;
+        border: 1px solid #f4f3f3;
+        &:hover {
+            background: #f5f5f5;
+        }
+
+        &.logout {
+            display: block;
+            width: 100%;
+            color: red;
+            border-top: 1px solid #eee;
+            margin: 0;
+            border-bottom-right-radius: 8px;
+            border-bottom-left-radius: 8px;
+        }
+    }
+}
+.value {
+    position: absolute;
+    top: -2px;
+    background: var(--primary); // màu đỏ notification
+    color: #fff;
+    font-size: 10px;
+    width: 20px;
+    height: 20px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-weight: 600;
+}

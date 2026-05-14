@@ -1,0 +1,162 @@
+// CategoryManager.module.scss
+.wrapper {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-family: 'Inter', sans-serif;
+
+    .header {
+        margin-bottom: 30px;
+        h2 {
+            margin: 0;
+            color: #1a1a1a;
+            font-size: 24px;
+        }
+        p {
+            color: #666;
+            margin-top: 5px;
+        }
+    }
+}
+
+.container {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f0f0f0;
+    overflow: hidden;
+
+    &.list-section {
+        flex: 2;
+    }
+    &.create-section {
+        flex: 1;
+        position: sticky;
+        top: 20px;
+    }
+
+    .card-title {
+        padding: 16px 20px;
+        border-bottom: 1px solid #f0f0f0;
+        background: #fafafa;
+        h3 {
+            margin: 0;
+            font-size: 16px;
+            color: #333;
+        }
+    }
+}
+
+// List Styling
+.list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    .item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 14px 20px;
+        transition: all 0.2s;
+        border-bottom: 1px solid #f9f9f9;
+
+        &:hover {
+            background: #fdfdfd;
+            transform: translateX(5px);
+        }
+
+        .name {
+            font-weight: 500;
+            color: #444;
+        }
+    }
+}
+
+.btn-delete {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 5px;
+    border-radius: 6px;
+    transition: background 0.2s;
+
+    &:hover {
+        background: #fff1f0;
+    }
+}
+
+// Form Styling
+.form {
+    padding: 20px;
+
+    .input-group {
+        margin-bottom: 20px;
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            color: #555;
+        }
+        input {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1.5px solid #e0e0e0;
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.2s;
+
+            &:focus {
+                border-color: #1890ff;
+            }
+        }
+    }
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 12px;
+    background: #1890ff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+        background: #40a9ff;
+        box-shadow: 0 4px 12px rgba(24, 144, 255, 0.3);
+    }
+
+    &:disabled {
+        background: #d9d9d9;
+        cursor: not-allowed;
+        box-shadow: none;
+    }
+}
+
+.empty {
+    padding: 40px;
+    text-align: center;
+    color: #999;
+    font-style: italic;
+}
+
+// Responsive
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column-reverse;
+    }
+    .card {
+        width: 100%;
+    }
+}

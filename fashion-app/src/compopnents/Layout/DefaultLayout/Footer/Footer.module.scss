@@ -1,0 +1,81 @@
+.footer {
+    background: #000;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 50px;
+}
+
+.footer-container {
+    padding: 60px 80px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    // justify-content: space-around;
+    gap: 30px;
+    max-width: 1400px;
+    margin: auto;
+}
+
+.footer-col h4 {
+    font-size: 14px;
+    margin-bottom: 16px;
+    letter-spacing: 1px;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    font-size: 13px;
+    color: #bbb;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.footer-col ul li:hover {
+    color: #fff;
+}
+
+.social-icons {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    font-size: 20px;
+}
+
+.social-icons i {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.social-icons i:hover {
+    transform: scale(1.2);
+}
+
+.bct-wrap {
+    height: 40px; // chiều cao hiển thị
+
+    overflow: hidden; // 👈 cắt phần dư
+}
+.bct {
+    border-radius: 12px;
+    display: block;
+    width: auto;
+    height: calc(100% + 8px); // 👈 dư 10px trên + 10px dưới
+    transform: translateY(-4px); // 👈 đẩy lên để cắt đều
+}
+.title {
+    display: block;
+    margin-top: 30px;
+    border-top: 1px solid var((--dicription-color));
+    padding: 10px 0;
+    text-align: center;
+    color: var(--dicription-color);
+    font-style: italic;
+    font-size: 1rem;
+}
+.icons {
+    color: #fff;
+}

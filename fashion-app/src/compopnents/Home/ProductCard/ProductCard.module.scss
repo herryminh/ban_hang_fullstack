@@ -1,0 +1,42 @@
+.card {
+    cursor: pointer;
+    background: #fff;
+}
+
+.image {
+    width: 100%;
+    height: 280px;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.info {
+    padding: 14px;
+}
+
+.name {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+.price {
+    font-size: 15px;
+    font-weight: 600;
+    color: #e53935;
+    margin-bottom: 6px;
+}
+
+.description {
+    font-size: 14px;
+    color: #666;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
